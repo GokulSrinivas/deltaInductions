@@ -1,0 +1,136 @@
+<html>
+
+<head>
+<script type="text/javascript">
+var speed = 100;
+
+function speedInc()
+{
+	speed= speed - 10;
+}
+function speedDec()
+{
+	speed = speed +10;
+}
+
+
+function mtop(m)
+{	
+	m = m + 5;
+	document.getElementById('gokul').style.left = m + "px";
+
+	if(m==900)
+	{
+		mright(150);
+	}
+	else
+	{
+		setTimeout(function(){mtop(m);},speed);
+	}
+	
+
+}
+function mright(m)
+{	
+	
+	m = m + 5;
+	document.getElementById('gokul').style.top = m + "px";
+
+	if(m==550)
+	{
+		mbottom(900);
+	}
+	else
+	{
+		setTimeout(function(){mright(m);},speed);
+	}
+
+}
+function mbottom(m)
+{	
+	
+	m = m - 5;
+	document.getElementById('gokul').style.left = m + "px";
+
+	if(m==400)
+	{
+		mleft(550);
+	}
+	else
+	{
+		setTimeout(function(){mbottom(m);},speed);
+	}
+
+}
+function mleft(m)
+{	
+	
+	m = m - 5;
+	document.getElementById('gokul').style.top = m + "px";
+
+	if(m==150)
+	{
+		mtop(400);
+	}
+	else
+	{
+		setTimeout(function(){mleft(m);},speed);
+	}
+}
+
+
+</script>
+<style type="text/css">
+	
+	
+	#gokul{
+		position: absolute;
+		background-color: yellow;
+		width: 20px;
+		height:20px;
+		border-radius: 20px;
+		
+		top: 150px;
+		left: 400px;
+		
+	}
+
+	.path {
+
+		position: absolute;
+		top: 150px;
+		left: 400px;
+
+		width: 500px;
+		height: 400px;
+		border-style: solid;
+		border-color: red;
+		border-width: 10px;
+	}
+	.spinc {
+
+		position: absolute;
+		top: 300px;
+		left: 950px;
+		width: 110px;
+		border-radius: 25px;
+	}
+	.spdec {
+
+		position: absolute;
+		top: 250px;
+		left: 950px;
+		width: 110px;
+		border-radius: 25px;
+	}
+</style>
+</head>
+<body bgcolor="#2a8a86" onload="mtop(400);">
+	<div class="path">	</div>
+	<div id="gokul" class="circle">	</div>
+	<input class="spinc" type="button" onclick="speedInc();" value="increase speed">
+	<input class="spdec" type="button" onclick="speedDec();" value="decrease speed">
+
+</body>
+</html>
+
